@@ -15,7 +15,7 @@ function App() {
 	//글번호를 view로 넘기기위해 seq로 넘긴다.
 	return (
 		<div className="App">
-			<BrowserRouter basename="{process.env.PUBIC_URL}">
+			<BrowserRouter basename={process.env.PUBLIC_URL}>
 				<Routes>
 					<Route path="/" element={<Home />}></Route>
 					<Route path="/write/*" element={<Write />}></Route>
