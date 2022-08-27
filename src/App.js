@@ -1,25 +1,29 @@
-import logo from './logo.svg';
 import './App.css';
+import Write from './component/Write';
+import Home from './component/Home';
+import View from './component/View';
+import React, { useState, useEffect } from 'react';
 
+import {
+	BrowserRouter as BrowserRouter,
+	Switch,
+	Route,
+	Routes,
+} from 'react-router-dom';
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+	//글번호(key) = seq
+	//글번호를 view로 넘기기위해 seq로 넘긴다.
+	return (
+		<div className="App">
+			<BrowserRouter>
+				<Routes>
+					<Route path="/" element={<Home />}></Route>
+					<Route path="/write/*" element={<Write />}></Route>
+					<Route path="/view/:seq" element={<View />}></Route>
+				</Routes>
+			</BrowserRouter>
+		</div>
+	);
 }
 
 export default App;
